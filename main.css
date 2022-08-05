@@ -5,14 +5,72 @@
 }
 
 /* BODY */
-
+body{
+  min-height: 100vh;
+  display: flex;
+  flex-wrap: wrap;
+}
 
 
 
 /* HEADER */
 
+.burger{
+  background-color: rgba(89, 86, 86, 0.139) !important;
+  height: 45px;
+  width: 45px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  justify-content: center;
+  align-items: center;
+}
 
+.line{
+  background-color: #FF5757;
+  height: 3px;
+  width: 26px;
+  border-radius: 4px;
+  transition: 0.5s;
+}
 
+.active .line:nth-child(1){
+  transform: translateY(12px)
+  rotate(135deg);
+}
+.active .line:nth-child(2){
+  transform: scale(0);
+}
+.active .line:nth-child(3){
+  transform: translateY(-10px)
+  rotate(-135deg);
+}
+
+.carrito{
+  height: 45px;
+  width: 45px;
+  background-color: rgba(55, 54, 54, 0.194);
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.nav-item{
+  color : black;
+  font-weight: bold;
+}
+
+.dropdown-item:hover{
+  background-color: #FF5757 !important;
+}
+
+.itembg{
+  background-color: #FF5757 !important;
+  font-weight: bold !important;
+}
 
 /* MAIN */
 
@@ -21,7 +79,11 @@
 
 /* FOOTER */
 
-
-
+footer{
+  align-self: flex-end;
+  width: 100%;
+  margin-top: 50px;
+  background-color: #e4cfad;
+}
 
 /* CLASES GENERALES */

@@ -8,7 +8,6 @@ const URL =  "https://apipetshop.herokuapp.com/api/articulos"
 
 const { createApp } = Vue
 createApp({
-
     data(){
         return{
             data: [],

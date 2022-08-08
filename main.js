@@ -1,8 +1,8 @@
+let burger = document.querySelector(".burger");
 
-
-
-
-
+burger.addEventListener("click", () => {
+    burger.classList.toggle("active");
+})
 
 const URL =  "https://apipetshop.herokuapp.com/api/articulos"
 
@@ -13,7 +13,8 @@ createApp({
         return{
             data: [],
             juguetes: [],
-            farmacia: []
+            medicamentos: [],
+            productos: []
         }
     },
 
@@ -24,6 +25,11 @@ createApp({
             this.data = datos.response
             this.soloJuguetes()
             this.soloMedicamentos()
+
+            this.productos = this.data.map(prod => {
+                prod.max = 1
+                return prod
+            })
         })
         .catch(err => console.log(err))
     },
@@ -34,11 +40,17 @@ createApp({
         },
         
         soloMedicamentos : function(){
-            return this.farmacia = this.data.filter(elemento => elemento.tipo.includes("Medicamento"))
-        } 
+            return this.medicamentos = this.data.filter(elemento => elemento.tipo.includes("Medicamento"))
+        },
+
+/*          carrito: function(){
+            return this.medicamentos.forEach(element => element.stock === element.stock - element.max)
+        }  */
     },
 
     computed: {
         
     }
+
 }).mount('#container')
+

@@ -4,32 +4,194 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="./assets/img/favicon2.png" type="image/x-icon">
     <link rel="stylesheet" href="./main.css">
-    <title>Document</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Tangerine">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Quicksand">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <title>Home - Ke Bellios</title>
 </head>
 <body>
 
 <!-- HEADER -->
-    <header>
+    <header class="w-100">
+        <nav class="navbar navbar-expand-lg fs-4">
+          <div class="container-fluid">
+            <a class="navbar-brand" href="#"><img src="./assets/img/logo.png" height="100" alt="logo"></a>
+            
+              <div class="burger navbar-toggler mx-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation"">
+                  <div class="line"></div>
+                  <div class="line"></div>
+                  <div class="line"></div>
+              </div>
 
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+              <div class="w-100 d-flex justify-content-between">
+                <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link active fw-bold" style="color: #FF5757"  aria-current="page" href="#">Inicio</a>
+                  </li>
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      Tienda
+                    </a>
+                    <ul class="dropdown-menu fs-5">
+                      <li><a class="dropdown-item" href="./farmacia.html">Farmacia</a></li>
+                      <li><hr class="dropdown-divider"></li>
+                      <li><a class="dropdown-item" href="./juguetes.html">Juguetes</a></li>
+                    </ul>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="./contacto.html">Contacto</a>
+                  </li>
+                </ul>
+                <div class="d-flex justify-content-end mx-3">
+                    <button class="carrito" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+                      <img src="./assets/img/carrito.png" width="35px" height="35px" alt="carrito">
+                    </button>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </nav>
 
+        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title fw-bold" id="offcanvasRightLabel">Carrito de Compras</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-header">
+            <p>Revisa tus productos aca!</p>
+          </div>
+          <div class="offcanvas-body">
+              <div class="card m-2 d-flex align-items-start">
+                  <div class="card-body">
+                      <h5 class="card-title fw-bold">Special title treatment</h5>
+                      <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                      <button class="btn btn-sacar fw-bold">Sacar del carrito</button>
+                  </div>
+              </div>
+          </div>
+          <div class="d-flex justify-content-center">
+            <button class="btn w-75 btn-comprar fw-bold mb-2" type="button">Comprar</button>
+          </div>
+        </div>
     </header>
 
 <!-- MAIN -->
-    <main>
 
+    <main class="d-flex flex-column align-items-center w-100">
+      
+      <div  class="d-flex flex-column align-items-center col-11 flex-lg-row">
+
+        <div class="p-5 p-lg-2 me-lg-5">
+          <p class="comentario fw-bold fs-1 text-center">“Respetar a los animales es una obligación, amarlos es un privilegio.”</p>
+          <p class="comentario fw-bold fs-1 d-flex justify-content-end">- Ke Bellios -</p>
+        </div>
+
+
+        <div class="container-all my-lg-3 mb-5">
+
+          <input type="radio" id="1" name="image-slide" hidden/>
+          <input type="radio" id="2" name="image-slide" hidden/>
+          <input type="radio" id="3" name="image-slide" hidden/>
+
+          <div class="slide">
+
+              <div class="item-slide">
+                  <img class="imgSlide" src="./assets/img/michi1.jpg">
+              </div>
+
+              <div class="item-slide">
+                  <img class="imgSlide" src="./assets/img/perrito1.jpg">
+              </div>
+
+              <div class="item-slide">
+                  <img class="imgSlide" src="./assets/img/michi2.jpg">
+              </div>
+
+          </div>
+
+          <div class="pagination">
+            
+              <label class="pagination-item" for="1">
+                  <img class="imgSlide" src="./assets/img/michi1.jpg">
+              </label>
+              
+              <label class="pagination-item" for="2">
+                  <img class="imgSlide" src="./assets/img/perrito1.jpg">
+              </label>
+              
+              <label class="pagination-item" for="3">
+                  <img class="imgSlide" src="./assets/img/michi2.jpg">
+              </label>
+              
+          </div>
+          
+        </div>
+      </div>
+
+
+
+      <div class="d-flex flex-column align-items-center col-12 mt-3">
+        <p class="fs-3 text-center">Bienvenidos</p>
+        <img class="d-flex justify-content-center col-6 col-md-4 col-lg-3" src="./assets/img/titulo.png"  alt="titulo">
+      </div>
+
+      <div class="conainer_icons d-flex justify-content-center w-100">
+        <ul class="menu d-flex justify-content-around w-100" data-animation="to-top">
+          <li>
+            <a class="text-decoration-none text-danger fw-bold fs-4" href="./farmacia.html">
+              <span class="text-center">Farmacia</span> 
+              <span><i class="bi bi-capsule-pill" aria-hidden="true"></i></span>
+            </a>
+          </li>
+          <li>
+            <a class="text-decoration-none text-danger fw-bold fs-4 mx-4" href="./juguetes.html">
+              <span class="text-center">Juguetes</span>
+              <span><i class="bi bi-joystick" aria-hidden="true"></i></span>
+            </a>
+          </li>
+          <li>
+            <a class="text-decoration-none text-danger fw-bold fs-4" href="./contacto.html">
+              <span class="text-center">Contacto</span>
+              <span><i class="bi bi-telephone-inbound" aria-hidden="true"></i></span>
+            </a>
+          </li>
+        </ul>
+      </div>
+      
+      <div class="w-100 m-5">
+        <img class="w-100" src="./assets/img/mascotas2.png" alt="mascotas">
+      </div>
+
+      <!-- <hr class="bg-dark w-75"> -->
+      
+      <section class="d-flex justify-content-start w-75 flex-column">
+        <h3>- Sobre Nosotros -</h3>
+        <p class="fs-5">
+          "Ke Bellios" es una asociación de 4 jovenes que ama a los animales y quiere brindar 
+          los productos necesarios al alcance de su mano para los mas hermosos de la casa.
+        </p>
+      </section>
+      
+      <img class="col-6 col-md-5 col-lg-4" src="./assets/img/hr.png" alt="hr">
 
         
     </main>
 
 <!-- FOOTER  -->
     <footer>
-
+      <div class="footer w-100 d-flex justify-content-center">
+        <p>© KE BELLIOS | 2022</p>
+      </div>
 
     </footer>
 
 <!-- SCRIPS -->
     <script src="./main.js"></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
 </body>
 </html>

@@ -1,5 +1,6 @@
 let burger = document.querySelector(".burger");
 
+
 burger.addEventListener("click", () => {
     burger.classList.toggle("active");
 })
@@ -8,6 +9,10 @@ burger.addEventListener("click", () => {
 
 
 
+
+burger.addEventListener("click", () => {
+    burger.classList.toggle("active");
+})
 
 const URL =  "https://apipetshop.herokuapp.com/api/articulos"
 
@@ -18,8 +23,13 @@ createApp({
         return{
             data: [],
             juguetes: [],
+
             farmacia: [],
-            boton_mas_info:[]
+            boton_mas_info:[],
+
+            medicamentos: [],
+            productos: []
+
         }
     },
 
@@ -30,6 +40,11 @@ createApp({
             this.data = datos.response
             this.soloJuguetes()
             this.soloMedicamentos()
+
+            this.productos = this.data.map(prod => {
+                prod.max = 1
+                return prod
+            })
         })
         .catch(err => console.log(err))
     },
@@ -40,24 +55,24 @@ createApp({
         },
         
         soloMedicamentos : function(){
-            return this.farmacia = this.data.filter(elemento => elemento.tipo.includes("Medicamento"))
-        } 
+            return this.medicamentos = this.data.filter(elemento => elemento.tipo.includes("Medicamento"))
+        },
+
+/*          carrito: function(){
+            return this.medicamentos.forEach(element => element.stock === element.stock - element.max)
+        }  */
     },
 
     computed: {
-        offCanvasBoton:function(){
-
-        }
+        
     }
+
 }).mount('#container')
 
 
-    /* <div class="offcanvas offcanvas-top position-absolute" tabindex="-1" id="offcanvasTop" aria-labelledby="offcanvasTopLabel">
-               <div class="offcanvas-header">
-                 <h5 class="offcanvas-title" id="offcanvasTopLabel">{{juguete.nombre}}</h5>
-                 <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-               </div>
-               <div class="offcanvas-body">
-                <p>{{juguete.descripcion}}</p>
-               </div>
-             </div> */
+
+
+
+
+
+

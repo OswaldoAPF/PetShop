@@ -73,16 +73,14 @@ body{
 }
 
 /* MAIN */
-
 .card {
-  width: 200px;
+  width: 250px;
   height: 260px;
-  margin-top: 2rem;
-  background-color: #212121;
-  box-shadow: 5px 5px 10px #191919,
-               -5px -5px 20px #292929;
+   background-color: #e4cfad;
+  box-shadow: 5px 5px 10px #e4cfad,
+               -5px -5px 10px #e4cfad;
   transition: border-radius cubic-bezier(0.075, 0.82, 0.165, 1) 1s,
-               transform cubic-bezier(0.075, 0.82, 0.165, 1) 1s;
+               transform cubic-bezier(0.075, 0.82, 0.165, 1) 1s; 
  }
  
  .card:hover {
@@ -90,9 +88,19 @@ body{
   border-top-left-radius: 50px;
   transform: scale(1.05);
  }
- 
+
+ .stock{
+  background-color: #f82222 !important;
+ }
+
+ .agregar-a-carrito{
+  background-color: #ff5757 !important;
+ }
 
 
+ .info-prod{
+  background-color:#e4cfad !important ;
+ }
 /* FOOTER */
 
 footer{

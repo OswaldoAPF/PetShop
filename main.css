@@ -41,6 +41,10 @@ body{
 
 /* HEADER */
 
+nav{
+  background-color: #e4cfad;
+}
+
 .burger{
   background-color: rgba(89, 86, 86, 0.139) !important;
   height: 45px;
@@ -76,12 +80,13 @@ body{
 .carrito{
   height: 45px;
   width: 45px;
-  background-color: rgba(55, 54, 54, 0.194);
+  background-color: rgba(89, 86, 86, 0.139);
   border-radius: 8px;
   display: flex;
   justify-content: center;
   flex-direction: column;
   align-items: center;
+  border: none;
 }
 
 .nav-item{
@@ -96,6 +101,31 @@ body{
 .itembg{
   background-color: #FF5757 !important;
   font-weight: bold !important;
+}
+
+.offcanvas-header{
+  background-color: #e4cfad;
+}
+
+.btn-close{
+  background-color: #ff5757 !important;
+}
+
+.btn-comprar{
+  background-color: #ff5757 !important;
+}
+
+.btn-comprar:hover{
+  color: white !important;
+}
+
+.btn-sacar{
+  border: 1px black solid !important;
+}
+
+.btn-sacar:hover{
+  color: #FF5757 !important;
+  border: 1px #ff5757 solid!important;
 }
 
 /* MAIN */
@@ -225,6 +255,60 @@ input[id="3"]:checked ~ .pagination .pagination-item[for="3"]{
   }
 }
 
+.conainer_icons{
+  margin: 70px 0px;
+  padding-right: 25px;
+
+}
+
+.menu {
+  list-style: none;
+}
+
+.menu a {
+  position: relative;
+  display: block;
+  overflow: hidden;
+}
+
+.menu a span {
+  transition: transform 0.2s ease-out;
+}
+
+.menu a span:first-child {
+  display: inline-block;
+  padding: 10px 0px;
+}
+
+.menu a span:last-child {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: translateY(-100%);
+}
+
+.menu i {
+  font-size: 50px;
+}
+
+.menu a:hover span:first-child {
+  transform: translateY(100%);
+}
+
+.menu a:hover span:last-child,
+.menu[data-animation] a:hover span:last-child {
+  transform: none;
+}
+
+.menu[data-animation="to-top"] a span:last-child {
+  transform: translateY(100%);
+}
+
 
 /* FOOTER */
 
@@ -236,3 +320,5 @@ footer{
 }
 
 /* CLASES GENERALES */
+
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css");

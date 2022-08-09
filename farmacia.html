@@ -61,7 +61,7 @@
       <h2 class="w-100 text-center p-5">MEDICAMENTOS PARA TU MASCOTA</h2>
       <template v-for="medicamento in medicamentos">
         <div class="card">
-          <p class="position-absolute top-0 start-50 translate-middle  w-75 stock fw-bold text-center border rounded-5" v-if="medicamento.stock <= 5">¡Pocas Unidades!</p>
+          <p class="position-absolute top-0 start-50 translate-middle text-white  w-75 stock fw-bold text-center border rounded-5" v-if="medicamento.stock <= 5">¡Pocas Unidades!</p>
           <img v-bind:src="medicamento.imagen" alt="medicamento" >
           <div class="card-body text-dark">
             <h5 class="card-title">{{medicamento.nombre}}</h5>
@@ -83,9 +83,7 @@
             </div>
         </div>
       </template>
-    </section>
-
-        
+    </section> 
   </main>
 
 <!-- FOOTER  -->

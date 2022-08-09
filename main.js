@@ -1,16 +1,13 @@
 let burger = document.querySelector(".burger");
 
-
 burger.addEventListener("click", () => {
     burger.classList.toggle("active");
 })
-
 
 const URL =  "https://apipetshop.herokuapp.com/api/articulos"
 
 const { createApp } = Vue
 createApp({
-
     data(){
         return{
             data: [],
@@ -54,9 +51,7 @@ createApp({
     },
 
     computed: {
-        offCanvasBoton:function(){
 
-        }
     }
 
 }).mount('#container')
@@ -72,4 +67,5 @@ createApp({
                 <p>{{juguete.descripcion}}</p>
                </div>
              </div> */
+
 

@@ -6,7 +6,7 @@
 }
 
 /* BODY */
-body{
+body {
   min-height: 100vh;
   display: flex;
   flex-wrap: wrap;
@@ -45,7 +45,9 @@ nav{
   background-color: #e4cfad;
 }
 
-.burger{
+
+
+.burger {
   background-color: rgba(89, 86, 86, 0.139) !important;
   height: 45px;
   width: 45px;
@@ -57,7 +59,7 @@ nav{
   align-items: center;
 }
 
-.line{
+.line {
   background-color: #FF5757;
   height: 3px;
   width: 26px;
@@ -65,19 +67,19 @@ nav{
   transition: 0.5s;
 }
 
-.active .line:nth-child(1){
-  transform: translateY(12px)
-  rotate(135deg);
-}
-.active .line:nth-child(2){
-  transform: scale(0);
-}
-.active .line:nth-child(3){
-  transform: translateY(-10px)
-  rotate(-135deg);
+.active .line:nth-child(1) {
+  transform: translateY(12px) rotate(135deg);
 }
 
-.carrito{
+.active .line:nth-child(2) {
+  transform: scale(0);
+}
+
+.active .line:nth-child(3) {
+  transform: translateY(-10px) rotate(-135deg);
+}
+
+.carrito {
   height: 45px;
   width: 45px;
   background-color: rgba(89, 86, 86, 0.139);
@@ -89,16 +91,16 @@ nav{
   border: none;
 }
 
-.nav-item{
-  color : black;
+.nav-item {
+  color: black;
   font-weight: bold;
 }
 
-.dropdown-item:hover{
+.dropdown-item:hover {
   background-color: #FF5757 !important;
 }
 
-.itembg{
+.itembg {
   background-color: #FF5757 !important;
   font-weight: bold !important;
 }
@@ -333,14 +335,138 @@ input[id="3"]:checked ~ .pagination .pagination-item[for="3"]{
   transform: translateY(100%);
 }
 
+/* FORM */
+@import url(https://fonts.googleapis.com/css?family=Montserrat);
 
+/*basic reset*/
+
+
+body {
+  font-family: montserrat, arial, verdana;
+  background: transparent;
+}
+
+.siguiente {
+  display: none;
+}
+
+
+/*form styles*/
+#msform {
+  text-align: center;
+  position: relative;
+  margin-top: 30px;
+}
+
+#msform fieldset {
+  background: white;
+  border: 0 none;
+  border-radius: 0px;
+  box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4);
+  padding: 20px 30px;
+  box-sizing: border-box;
+  margin: 0;
+}
+
+/*inputs*/
+#msform input,
+#msform textarea {
+  padding: 15px;
+  border: 1px solid #ccc;
+  border-radius: 0px;
+  margin-bottom: 10px;
+  width: 100%;
+  box-sizing: border-box;
+  font-family: montserrat;
+  color: #2C3E50;
+  font-size: 13px;
+}
+
+#msform input[type="textarea"] {
+  padding-bottom: 60px;
+}
+
+.titulos_info {
+  color: #FF5757;
+  font-weight: bold;
+}
+.palabras_info{
+  font-size: 17px;
+}
+
+#msform input:focus,
+#msform textarea:focus {
+  -moz-box-shadow: none !important;
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+  border: 1px solid #FF5757;
+  outline-width: 0;
+  transition: All 0.5s ease-in;
+  -webkit-transition: All 0.5s ease-in;
+  -moz-transition: All 0.5s ease-in;
+  -o-transition: All 0.5s ease-in;
+}
+
+/*buttons*/
+#msform .action-button {
+  width: 100px;
+  background: #FF5757;
+  font-weight: bold;
+  color: white;
+  border: 0 none;
+  border-radius: 25px;
+  cursor: pointer;
+  padding: 10px 5px;
+  margin: 10px 5px;
+}
+
+#msform .action-button:hover,
+#msform .action-button:focus {
+  box-shadow: 0 0 0 2px white, 0 0 0 3px #FF5757;
+}
+
+#msform .action-button-previous {
+  width: 100px;
+  background: #E4CFAD;
+  font-weight: bold;
+  color: white;
+  border: 0 none;
+  border-radius: 25px;
+  cursor: pointer;
+  padding: 10px 5px;
+  margin: 10px 5px;
+}
+
+#msform .action-button-previous:hover,
+#msform .action-button-previous:focus {
+  box-shadow: 0 0 0 2px white, 0 0 0 3px #E4CFAD;
+}
+
+/*headings*/
+.fs-title {
+  font-size: 18px;
+  text-transform: uppercase;
+  color: #2C3E50;
+  margin-bottom: 10px;
+  letter-spacing: 2px;
+  font-weight: bold;
+}
+
+.fs-subtitle {
+  font-weight: normal;
+  font-size: 13px;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+/* MAPA */
 
  .info-prod{
   background-color:#e4cfad !important ;
  }
 /* FOOTER */
 
-footer{
+footer {
   align-self: flex-end;
   width: 100%;
   margin-top: 50px;
@@ -350,3 +476,4 @@ footer{
 /* CLASES GENERALES */
 
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css");
+

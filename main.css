@@ -89,6 +89,7 @@ body{
   transform: scale(1.05);
  }
 
+
  .stock{
   background-color: #f82222 !important;
  }
@@ -96,6 +97,7 @@ body{
  .agregar-a-carrito{
   background-color: #ff5757 !important;
  }
+
 
  .info-prod{
   background-color:#e4cfad !important ;

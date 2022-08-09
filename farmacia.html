@@ -19,6 +19,9 @@
               <a class="navbar-brand" href="#"><img src="./assets/img/logo.png" height="100" alt="logo"></a>
               
                 <div class="burger navbar-toggler mx-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation"">
+
+                <div class="burger navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+
                     <div class="line"></div>
                     <div class="line"></div>
                     <div class="line"></div>
@@ -79,11 +82,35 @@
     </header>
 
 <!-- MAIN -->
-    <main>
-
-
-        
-    </main>
+  <main id="container">
+    <section class="d-flex flex-wrap justify-content-center gap-5">
+      <h2 class="w-100 text-center p-5">MEDICAMENTOS PARA TU MASCOTA</h2>
+      <template v-for="medicamento in medicamentos">
+        <div class="card">
+          <p class="position-absolute top-0 start-50 translate-middle text-white  w-75 stock fw-bold text-center border rounded-5" v-if="medicamento.stock <= 5">¡Pocas Unidades!</p>
+          <img v-bind:src="medicamento.imagen" alt="medicamento" >
+          <div class="card-body text-dark">
+            <h5 class="card-title">{{medicamento.nombre}}</h5>
+            <p class="card-text">${{medicamento.precio}}</p>
+            <p class="card-text"> Unidades disponibles: {{medicamento.stock}}</p>
+          </div>
+            <div class="col-12">
+              <div class="d-flex flex-row w-100 justify-content-center">
+                <label class="w-30 m-1">Cantidad</label>
+                <input  v-model="medicamento.max" class="w-50 text-center" type="number" min="1" v-bind:max="medicamento.stock" onkeydown="return false"  step="1" value="1" name="" id="">
+              </div>
+            </div>
+          
+            <div class="col-12">
+              <div class="col-12 d-flex justify-content-center p-3">
+                <button type="button" v-on:click="carrito()" class="col-9 mx-1 btn agregar-a-carrito text-light ">Agregar al carrito</button>
+                <button type="button" class="col-3 btn info-prod">Info</button>
+              </div>
+            </div>
+        </div>
+      </template>
+    </section> 
+  </main>
 
 <!-- FOOTER  -->
     <footer>
@@ -94,7 +121,8 @@
     </footer>
 
 <!-- SCRIPS -->
-    <script src="./main.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/vue@3"></script>
+<script src="./main.js"></script>
 </body>
 </html>

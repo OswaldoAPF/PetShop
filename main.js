@@ -5,15 +5,6 @@ burger.addEventListener("click", () => {
     burger.classList.toggle("active");
 })
 
-
-
-
-
-
-burger.addEventListener("click", () => {
-    burger.classList.toggle("active");
-})
-
 const URL =  "https://apipetshop.herokuapp.com/api/articulos"
 
 const { createApp } = Vue
@@ -23,12 +14,11 @@ createApp({
         return{
             data: [],
             juguetes: [],
-
-            farmacia: [],
-            boton_mas_info:[],
-
             medicamentos: [],
-            productos: []
+            productos: [],
+            farmacia: [],
+            boton_mas_info:[]
+
 
         }
     },
@@ -68,9 +58,6 @@ createApp({
     }
 
 }).mount('#container')
-
-
-
 
 
 

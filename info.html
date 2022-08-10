@@ -59,28 +59,29 @@
 </header>
 
 <!-- MAIN -->  
-    <main class="d-flex flex-column align-items-center w-100" id="container">
+    <main class="w-100" id="container">
 
       <template v-for="producto in productoInfo"> 
-        
-        <h1 id="title" class="m-5 text-center"> {{producto.nombre}}</h1>
-
+        <div class="d-flex justify-content-center w-100">
+          <h1 id="title" class="text-center w-100 mt-5"> {{producto.nombre}}</h1>
+        </div>
         <div class="container-fluid">
-          <div class="row">
+          <div>
             <hr>
-            <div class="col-12 d-flex w-100 fs-5">
-              <div class="col-6 align-self-center p-4">
-                <p class="text-center"> <b>Descripcion:</b> {{producto.descripcion}} </p>
-                <p class="text-center"> <b>Valor:</b> ${{producto.precio}} </p>
-                <p class="text-center"> <b>Unidades Disponibles:</b> {{producto.stock}} </p>
-                <p class="text-center text-danger fw-bold" v-if="producto.stock <= 5">!Aprovecha las últimas unidades!</p>
-                <div class="col-12 d-flex justify-content-center align-content-end">
-                  <button type="button" v-on:click="carrito" class=" w-100 align-content-center btn agregar-a-carrito text-light ">Agregar al carrito</button>
-                </div>
+            <div class="d-flex flex-column align-items-center justify-content-center w-100">
+              <div class="w-100 d-flex justify-content-center">
+                <img v-bind:src="producto.imagen" alt="" class="imagenProd" />
               </div>
-              
-              <div class="d-flex justify-content-center col-6">
-                <img v-bind:src="producto.imagen" alt="" class="imagenProd  " />
+              <div class="w-100 fs-5">
+                <div class="align-self-center p-4">
+                  <p class="text-center"> <b>Descripcion:</b> {{producto.descripcion}} </p>
+                  <p class="text-center"> <b>Valor:</b> ${{producto.precio}} </p>
+                  <p class="text-center"> <b>Unidades Disponibles:</b> {{producto.stock}} </p>
+                  <p class="text-center text-danger fw-bold" v-if="producto.stock <= 5">!Aprovecha las últimas unidades!</p>
+                  <div class="d-flex justify-content-center align-content-end">
+                    <button type="button" v-on:click="carrito" class="align-content-center btn agregar-a-carrito text-light">Agregar al carrito</button>
+                  </div>
+                </div>
               </div>
             </div>
           </div>

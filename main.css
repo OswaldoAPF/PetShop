@@ -332,6 +332,10 @@ input[id="3"]:checked ~ .pagination .pagination-item[for="3"]{
   transform: translateY(100%);
 }
 
+.nav_main{
+  color: #ff5757 !important;
+}
+
 /* FORM */
 @import url(https://fonts.googleapis.com/css?family=Montserrat);
 

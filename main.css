@@ -126,6 +126,7 @@ body{
 
  .agregar-a-carrito{
   background-color: #ff5757 !important;
+  font-size: 15px !important;
  }
 
 .imgSlide{
@@ -254,6 +255,10 @@ input[id="3"]:checked ~ .pagination .pagination-item[for="3"]{
  .info-prod{
   background-color:#e4cfad !important ;
  }
+
+.imagenProd{
+  width: 300px !important;
+}
 /* FOOTER */
 
 footer{

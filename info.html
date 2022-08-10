@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="./assets/img/favicon2.png" type="image/x-icon"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Tangerine">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Quicksand">
+    <link rel="stylesheet" href="./main.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <title>Info Producto</title>
+  </head>
+
+  <body id="container">
+    
+    <main class="d-flex flex-column align-items-center w-100">
+
+
+
+
+
+      <template v-for="producto in productoInfo"> 
+        
+        <h1 id="title" class="m-5 text-center"> {{producto.nombre}}</h1>
+
+        <div class="container-fluid">
+          <div class="row">
+            <hr>
+            <div class="col-12 d-flex w-100 fs-5">
+              <div class="col-6 align-self-center p-4">
+                <p class="text-center"> <b>Descripcion:</b> {{producto.descripcion}} </p>
+                <p class="text-center"> <b>Valor:</b> ${{producto.precio}} </p>
+                <p class="text-center"> <b>Unidades Disponibles:</b> {{producto.stock}} </p>
+                <p class="text-center text-danger fw-bold" v-if="producto.stock <= 5">!Aprovecha las últimas unidades!</p>
+                <div class="col-12 d-flex justify-content-center align-content-end">
+                  <button type="button" v-on:click="carrito" class=" w-100 align-content-center btn agregar-a-carrito text-light ">Agregar al carrito</button>
+                </div>
+              </div>
+              
+              <div class="d-flex justify-content-center col-6">
+                <img v-bind:src="producto.imagen" alt="" class="imagenProd  " />
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+
+      </template>
+
+
+
+
+
+
+    </main>
+
+<!-- FOOTER  -->
+    <footer>
+        <div class="footer w-100 d-flex justify-content-center">
+        <p>© KE BELLIOS  | 2022</p>
+        </div>
+    </footer>
+
+<!-- SCRIPS -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://unpkg.com/vue@3"></script>
+    <script src="./main.js"></script>
+  </body>
+</html>

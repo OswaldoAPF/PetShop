@@ -5,6 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="./assets/img/favicon2.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Tangerine">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Quicksand">
     <link rel="stylesheet" href="./main.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Quicksand">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
@@ -26,28 +28,30 @@
                 </div>
 
               <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                <ul class="navbar-nav">
-                  <li class="nav-item">
-                    <a class="nav-link fw-bold"  aria-current="page" href="./index.html">Home</a>
-                  </li>
-                  <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" style="color: #FF5757" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                      Tienda
-                    </a>
-                    <ul class="dropdown-menu fs-5">
-                      <li><a class="dropdown-item" href="./farmacia.html">Farmacia</a></li>
-                      <li><hr class="dropdown-divider"></li>
-                      <li><a class="dropdown-item itembg" href="#">Juguetes</a></li>
-                    </ul>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="./contacto.html">Contacto</a>
-                  </li>
-                </ul>
-                <div class="d-flex justify-content-end mx-3">
-                  <button class="carrito" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
-                    <img src="./assets/img/carrito.png" width="35px" height="35px" alt="carrito">
-                  </button>
+                <div class="w-100 d-flex justify-content-between">
+                  <ul class="navbar-nav">
+                    <li class="nav-item">
+                      <a class="nav-link fw-bold"  aria-current="page" href="./index.html">Home</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle" style="color: #FF5757" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Tienda
+                      </a>
+                      <ul class="dropdown-menu fs-5">
+                        <li><a class="dropdown-item" href="./farmacia.html">Farmacia</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item itembg" href="#">Juguetes</a></li>
+                      </ul>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="./contacto.html">Contacto</a>
+                    </li>
+                  </ul>
+                  <div class="d-flex justify-content-end mx-3">
+                    <button class="carrito" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+                      <img src="./assets/img/carrito.png" width="35px" height="35px" alt="carrito">
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
@@ -62,7 +66,7 @@
               <p>Revisa tus productos aca!</p>
             </div>
             <div class="offcanvas-body">
-                <div class="card m-2 d-flex align-items-start">
+                <div class="card_carrito m-3 d-flex align-items-start border p-3">
                     <div class="card-body">
                         <h5 class="card-title fw-bold">Special title treatment</h5>
                         <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
@@ -78,35 +82,36 @@
     </header>
 
 <!-- MAIN -->
-    <main id="container" >
-      <section class="d-flex flex-wrap justify-content-center gap-5">
-        <h2 class="w-100 text-center p-5">JUGUETES PARA TU MASCOTA</h2>
-        <template v-for="juguete in juguetes">
-          <div class="card">
-            <p class="position-absolute top-0 start-50 translate-middle text-white w-75 stock fw-bold text-center border rounded-5" v-if="juguete.stock <= 5">¡Pocas Unidades!</p>
-            <img class="imagencard" v-bind:src="juguete.imagen" alt="juguete" >
-            <div class="card-body text-dark">
-              <h5 class="card-title">{{juguete.nombre}}</h5>
-              <p class="card-text">${{juguete.precio}}</p>
-              <p class="card-text"> Unidades disponibles: {{juguete.stock}}</p>
-            </div>
-              <div class="col-12">
-                <div class="d-flex flex-row w-100 justify-content-center">
-                  <label class="w-30 m-1">Cantidad</label>
-                  <input  v-model="juguete.max" class="w-50 text-center" type="number" min="1" v-bind:max="juguete.stock" onkeydown="return false"  step="1" value="1" name="" id="">
-                </div>
-              </div>
-            
-              <div class="col-12">
-                <div class="col-12 d-flex justify-content-center p-3">
-                  <button type="button" v-on:click="carrito()" class="col-9 mx-1 btn agregar-a-carrito text-light ">Agregar al carrito</button>
-                  <button type="button" class="col-3 btn info-prod"><i class="bi bi-question-circle fs-3 text-danger"></i></button>
-                </div>
-              </div>
+
+  <main id="container">
+    <section class="d-flex flex-wrap justify-content-center gap-5">
+      <h1 class="w-100 text-center p-5">JUGUETES PARA TU MASCOTA</h1>
+      <template v-for="juguete in juguetes">
+        <div class="card">
+          <p class="position-absolute top-0 start-50 translate-middle text-white  w-75 stock fw-bold text-center border rounded-5" v-if="juguete.stock <= 5">¡Pocas Unidades!</p>
+          <img class="imagencard" v-bind:src="juguete.imagen" alt="juguete" >
+          <div class="card-body text-dark">
+            <h5 class="card-title">{{juguete.nombre}}</h5>
+            <p class="card-text">${{juguete.precio}}</p>
+            <p class="card-text"> Unidades disponibles: {{juguete.stock}}</p>
           </div>
-        </template>
-      </section>
-    </main>
+            <div class="col-12">
+              <div class="d-flex flex-row w-100 justify-content-center">
+                <label class="w-30 m-1">Cantidad</label>
+                <input  v-model="juguete.max" class="w-50 text-center" type="number" min="1" v-bind:max="juguete.stock" onkeydown="return false"  step="1" value="1" name="" id="">
+              </div>
+            </div>
+          
+            <div class="col-12">
+              <div class="col-12 d-flex justify-content-center p-3">
+                <button type="button" v-on:click="" class="col-9 mx-1 btn agregar-a-carrito text-light">Agregar al carrito</button>
+                <a :href="`./info.html?id=${juguete._id}`" class="col-3 mx-1 btn info-prod text-dark ">Info</a>
+              </div>
+            </div>
+        </div>
+      </template>
+    </section> 
+  </main>
 
 <!-- FOOTER  -->
     <footer>

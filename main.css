@@ -130,20 +130,33 @@ nav{
 
 /* MAIN */
 .card {
-  width: 250px;
-  height: 260px;
-   background-color: #e4cfad;
-  box-shadow: 5px 5px 10px #e4cfad,
-               -5px -5px 10px #e4cfad;
-  transition: border-radius cubic-bezier(0.075, 0.82, 0.165, 1) 1s,
-               transform cubic-bezier(0.075, 0.82, 0.165, 1) 1s; 
- }
- 
- .card:hover {
+width: 250px;
+height: 260px;
+  background-color: #e4cfad;
+box-shadow: 5px 5px 10px #e4cfad,
+              -5px -5px 10px #e4cfad;
+transition: border-radius cubic-bezier(0.075, 0.82, 0.165, 1) 1s,
+              transform cubic-bezier(0.075, 0.82, 0.165, 1) 1s; 
+}
+
+
+.card:hover {
   border-bottom-right-radius: 50px;
   border-top-left-radius: 50px;
   transform: scale(1.05);
- }
+}
+
+.card_carrito{
+  transition: border-radius cubic-bezier(0.075, 0.82, 0.165, 1) 1s,
+              transform cubic-bezier(0.075, 0.82, 0.165, 1) 1s; 
+}
+
+.card_carrito:hover{
+  border-bottom-right-radius: 50px;
+  border-top-left-radius: 50px;
+  transform: scale(1.05);
+  border-color: #ff5757 !important;
+}
 
 .comentario{
   font-family: 'Tangerine', serif;
@@ -159,6 +172,21 @@ background-color: #ff5757 !important;
 
 .imagencard{
   border-radius: 50px;
+}
+
+.agregar-a-carrito{
+background-color: #ff5757 !important;
+font-size: 15px !important;
+}
+
+.info-prod{
+background-color:#e4cfad !important ;
+font-size: 15px !important;
+}
+
+.agregar-a-carrito:hover{
+background-color: #f33f3f !important;
+color: black !important;
 }
 
 .imgSlide{
@@ -344,7 +372,6 @@ input[id="3"]:checked ~ .pagination .pagination-item[for="3"]{
 @import url(https://fonts.googleapis.com/css?family=Montserrat);
 
 /*basic reset*/
-
 
 body {
   font-family: montserrat, arial, verdana;
@@ -619,6 +646,10 @@ background-color:#e4cfad !important ;
   display: block;
   transition: all 0.5s 0.1s cubic-bezier(0.55, 0, 0.1, 1);
   z-index: -1;
+}
+
+.imagenProd{
+  width: 300px !important;
 }
 
 /* FOOTER */

@@ -128,6 +128,17 @@ body{
   background-color: #ff5757 !important;
   font-size: 15px !important;
  }
+ 
+ .info-prod{
+  background-color:#e4cfad !important ;
+  font-size: 15px !important;
+ }
+
+ .agregar-a-carrito:hover{
+  background-color: #f33f3f !important;
+  color: black !important;
+ }
+
 
 .imgSlide{
   max-width: 100%;
@@ -252,9 +263,7 @@ input[id="3"]:checked ~ .pagination .pagination-item[for="3"]{
 
 
 
- .info-prod{
-  background-color:#e4cfad !important ;
- }
+
 
 .imagenProd{
   width: 300px !important;

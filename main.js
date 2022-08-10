@@ -40,6 +40,7 @@ createApp({
             })
             
             this.infoProd(this.data)
+            //this.agregarCarrito()
              
         })
         .catch(err => console.log(err))
@@ -60,9 +61,10 @@ createApp({
             return this.productoInfo = arr.filter(prod => prod._id == this.id)
         },
 
-/*         carrito: function(){
-            return this.medicamentos.forEach(element => element.stock === element.stock - element.max)
-        } */  
+/*        agregarCarrito: function(e){
+            
+            console.log(e.target);
+        }  */
     },
 
     watch: {

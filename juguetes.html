@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="./assets/img/favicon2.png" type="image/x-icon">
     <link rel="stylesheet" href="./main.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Quicksand">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
     <title>Juguetes - Ke Bellios</title>
 </head>
@@ -17,7 +19,7 @@
             <div class="container-fluid">
               <a class="navbar-brand" href="#"><img src="./assets/img/logo.png" height="100" alt="logo"></a>
               
-                <div class="burger navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <div class="burger navbar-toggler mx-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                     <div class="line"></div>
                     <div class="line"></div>
                     <div class="line"></div>
@@ -39,19 +41,39 @@
                     </ul>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="./contacto.html">Contact</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="./carrito.html">
-                      <div class="carrito">
-                        <img src="./assets/img/carrito.png" width="35px" height="35px" alt="carrito">
-                      </div>
-                    </a>
+                    <a class="nav-link" href="./contacto.html">Contacto</a>
                   </li>
                 </ul>
+                <div class="d-flex justify-content-end mx-3">
+                  <button class="carrito" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+                    <img src="./assets/img/carrito.png" width="35px" height="35px" alt="carrito">
+                  </button>
+                </div>
               </div>
             </div>
           </nav>
+
+          <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+            <div class="offcanvas-header">
+              <h5 class="offcanvas-title fw-bold" id="offcanvasRightLabel">Carrito de Compras</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-header">
+              <p>Revisa tus productos aca!</p>
+            </div>
+            <div class="offcanvas-body">
+                <div class="card m-2 d-flex align-items-start">
+                    <div class="card-body">
+                        <h5 class="card-title fw-bold">Special title treatment</h5>
+                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                        <button class="btn btn-sacar fw-bold">Sacar del carrito</button>
+                    </div>
+                </div>
+            </div>
+            <div class="d-flex justify-content-center">
+              <button class="btn w-75 btn-comprar fw-bold mb-2" type="button">Comprar</button>
+            </div>
+          </div>
 
     </header>
 
@@ -61,8 +83,8 @@
         <h2 class="w-100 text-center p-5">JUGUETES PARA TU MASCOTA</h2>
         <template v-for="juguete in juguetes">
           <div class="card">
-            <p class="position-absolute top-0 start-50 translate-middle  w-75 stock fw-bold text-center border rounded-5" v-if="juguete.stock <= 5">¡Pocas Unidades!</p>
-            <img v-bind:src="juguete.imagen" alt="juguete" >
+            <p class="position-absolute top-0 start-50 translate-middle text-white w-75 stock fw-bold text-center border rounded-5" v-if="juguete.stock <= 5">¡Pocas Unidades!</p>
+            <img class="imagencard" v-bind:src="juguete.imagen" alt="juguete" >
             <div class="card-body text-dark">
               <h5 class="card-title">{{juguete.nombre}}</h5>
               <p class="card-text">${{juguete.precio}}</p>
@@ -78,7 +100,7 @@
               <div class="col-12">
                 <div class="col-12 d-flex justify-content-center p-3">
                   <button type="button" v-on:click="carrito()" class="col-9 mx-1 btn agregar-a-carrito text-light ">Agregar al carrito</button>
-                  <button type="button" class="col-3 btn info-prod">Info</button>
+                  <button type="button" class="col-3 btn info-prod"><i class="bi bi-question-circle fs-3 text-danger"></i></button>
                 </div>
               </div>
           </div>

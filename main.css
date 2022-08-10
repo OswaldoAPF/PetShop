@@ -149,13 +149,17 @@ nav{
   font-family: 'Tangerine', serif;
 }
 
- .stock{
-  background-color: #f82222 !important;
- }
+.stock{
+background-color: #f82222 !important;
+}
 
- .agregar-a-carrito{
-  background-color: #ff5757 !important;
- }
+.agregar-a-carrito{
+background-color: #ff5757 !important;
+}
+
+.imagencard{
+  border-radius: 50px;
+}
 
 .imgSlide{
   max-width: 100%;

@@ -4,6 +4,34 @@
   box-sizing: border-box;
 }
 
+root{
+  --facebook: #3b5999;
+  --instagram: #e4405f;
+  --twitter: #55acee; 
+  --pinterest: #bd081c;
+  --linkedin: #007785;
+}
+
+redes-container{
+  display:flex;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+}
+
+redes-container ul li {
+  display: inline-block;
+  margin: 0 5px;
+  width: 50px;
+  height: 50px;
+  text-align: center;
+}
+
+redes-container ul{
+  list-style: none !important;
+}
+
+
 /* BODY */
 body {
   min-height: 100vh;

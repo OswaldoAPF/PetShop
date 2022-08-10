@@ -43,7 +43,6 @@ createApp({
 }).mount('#container')
 
 
-//jQuery time
 let next = document.querySelector(".next"); // Boton Siguiente
 let prev = document.querySelector(".prev"); // Boton Atras
 let progressIcon = document.querySelector("#progressbar li"); // Barra de Progreso
@@ -85,3 +84,12 @@ Swal.fire({
   timer: 1500
 })
 
+let like = document.querySelector(".like");
+let div2 = document.querySelector(".div2");
+let cont = 0;
+like.addEventListener("click", function (e) {
+    cont++;
+    div2.innerHTML = `<p> Gracias por dejarnos tu like! </p>
+    <p>Contador de likes: {cont}</p>`
+});
+console.log(cont);

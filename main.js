@@ -15,8 +15,9 @@ createApp({
             medicamentos: [],
             productos: [],
             farmacia: [],
-            boton_mas_info:[]
-
+            boton_mas_info:[],
+            carrito:[],
+            btn_añadir_al_carrito:[]
 
         }
     },
@@ -46,11 +47,12 @@ createApp({
             return this.medicamentos = this.data.filter(elemento => elemento.tipo.includes("Medicamento"))
         },
         
-        /*          carrito: function(){
-            return this.medicamentos.forEach(element => element.stock === element.stock - element.max)
-        }  */
+        agregarCarrito: function (id){       
+               let producto= this.juguetes.filter((juguete,i)=>juguete._id===id?this.juguetes[i].stock=this.juguetes[i].stock-this.juguetes[i].max:null)    
+                console.log(producto)      
+            }
     },
-    
+        
     computed: {
         
     }

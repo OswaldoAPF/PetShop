@@ -61,12 +61,16 @@
         <h2 class="w-100 text-center p-5">JUGUETES PARA TU MASCOTA</h2>
         <template v-for="juguete in juguetes">
           <div class="card">
+            <p class="position-absolute top-0 start-50 translate-middle text-white  w-75 stock fw-bold text-center border rounded-5" v-if="juguete.stock > 0 && juguete.stock <= 5">¡Pocas Unidades!</p>
+            <p class="position-absolute top-0 start-50 translate-middle text-white  w-75 stock fw-bold text-center " v-if="juguete.stock == 0"></p>
             <p class="position-absolute top-0 start-50 translate-middle  w-75 stock fw-bold text-center border text-white rounded-5" v-if="juguete.stock <= 5">¡Pocas Unidades!</p>
             <img v-bind:src="juguete.imagen" alt="juguete" >
             <div class="card-body text-dark">
               <h5 class="card-title">{{juguete.nombre}}</h5>
               <p class="card-text">${{juguete.precio}}</p>
               <p class="card-text"> Unidades disponibles: {{juguete.stock}}</p>
+              <!-- <p  v-if="juguete.stock > 0" class="card-text"> Unidades disponibles: {{jueguete.stock}}</p> -->
+              <p v-if="juguete.stock <= 0" class="card-text"> Unidades disponibles: SIN STOCK</p>
             </div>
               <div class="col-12">
                 <div class="d-flex flex-row w-100 justify-content-center">
@@ -75,9 +79,11 @@
                 </div>
               </div>
             
-              <div class="col-12">
+              <div class="col-12" >
                 <div class="col-12 d-flex justify-content-center p-3">
-                  <button type="button" v-on:click="carrito()" class="col-9 mx-1 btn agregar-a-carrito text-light ">Agregar al carrito</button>
+                  <!-- <button type="button" v-on:click="agregarCarrito" class="col-9 mx-1 btn agregar-a-carrito text-light ">Agregar al carrito</button> -->
+                  <button v-if="juguete.stock > 0" type="button" v-on:click="agregarCarrito(juguete._id)" class="col-9 mx-1 btn agregar-a-carrito text-light">Agregar al carrito</button>
+                  <button v-if="juguete.stock <= 0" type="button" v-on:click="agregarCarrito" class="col-9 disabled mx-1 btn agregar-a-carrito text-light">Agregar al carrito</button>
                   <button type="button" class="col-3 btn info-prod">Info</button>
                 </div>
               </div>

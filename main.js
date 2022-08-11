@@ -76,17 +76,33 @@ otro.addEventListener("click", function (e) {
   }
 });
 
-Swal.fire({
-  position: 'top-end',
-  icon: 'success',
-  title: 'Your work has been saved',
-  showConfirmButton: false,
-  timer: 1500
-})
-
-let like = document.querySelector(".like");
-let div2 = document.querySelector(".div2");
-like.addEventListener("click", function (e) {
-   div2.innerHTML ="";
-    div2.innerHTML = `<p> Gracias por dejarnos tu like! </p>`
+let enviar = document.querySelector(".enviar");
+enviar.addEventListener("click", function (e) {
+  Swal.fire({
+    position: "center",
+    title: "Los datos han sido enviados",
+    footer: "¡Que tengas lindo día!",
+    imageUrl: "./assets/img/perroFeliz.png",
+    showConfirmButton: false,
+    timer: 1500,
+    color: "#FF5757",
+    background: "linear-gradient(35deg, #CCFFFF, #FFCCCC",
+    backdrop: `
+      rgba(0,0,123,0.4)
+      no-repeat
+    `,
   });
+});
+
+let elemento = document.querySelector(".elemento");
+let ancor = document.querySelector(".elemento a");
+elemento.addEventListener("click", function (e) {
+  elemento.classList.toggle("animate__animated");
+  elemento.classList.toggle("animate__heartBeat");
+});
+ancor.addEventListener("click", function (e) {
+  ancor.classList.toggle("gris");
+  ancor.classList.toggle("llenando");
+});
+
+  

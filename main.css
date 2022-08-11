@@ -96,7 +96,7 @@ body {
 }
 
 #msform fieldset {
-  background: #fff;
+  background: #f0ebeb;
   border: 0 none;
   border-radius: 0px;
   box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4);
@@ -117,7 +117,7 @@ body {
   font-family: montserrat;
   color: #2C3E50;
   font-size: 13px;
-  background-color: #FAF2F2;
+  background-color: #ffffff;
 }
 
 #msform input[type="textarea"] {
@@ -131,6 +131,8 @@ body {
 
 .palabras_info {
   font-size: 17px;
+  background-color: #f5eaec;
+  padding: 12px 0 12px 0;
 }
 
 #msform input:focus,
@@ -138,7 +140,7 @@ body {
   -moz-box-shadow: none !important;
   -webkit-box-shadow: none !important;
   box-shadow: none !important;
-  border: 1px solid #FF5757;
+  border: 2px solid #FF5757;
   outline-width: 0;
   transition: All 0.5s ease-in;
   -webkit-transition: All 0.5s ease-in;
@@ -148,7 +150,7 @@ body {
 
 /*buttons*/
 #msform .action-button {
-  width: 150px;
+  width: 120px;
   background: #FF5757;
   font-weight: bold;
   font-size: medium;
@@ -166,9 +168,10 @@ body {
 }
 
 #msform .action-button-previous {
-  width: 100px;
+  width: 120px;
   background: #E4CFAD;
   font-weight: bold;
+  font-size: medium;
   color: white;
   border: 0 none;
   border-radius: 25px;
@@ -194,7 +197,7 @@ body {
 
 .fs-subtitle {
   font-weight: normal;
-  font-size: 13px;
+  font-size: 15px;
   color: #666;
   margin-bottom: 20px;
 }
@@ -210,7 +213,7 @@ body {
 
 .redes-container a {
   padding: 3px;
-  color: #FF5757;
+  color: #FF5757; 
   line-height: 25px;
   text-decoration: none;
 }
@@ -220,7 +223,7 @@ body {
 .facebook a:hover,
 .twitter a:hover,
 .tiktok a:hover,
-.linkedin a:hover{
+.linkedin a:hover {
   color: #fff;
 }
 
@@ -310,14 +313,14 @@ body {
   border: 1px solid #e8e8e8;
   box-shadow: 6px 6px 12px #c5c5c5,
     -6px -6px 12px #ffffff;
-  
+
 }
 
 .button2:active {
   color: #666;
   box-shadow: inset 4px 4px 12px #c5c5c5,
-  inset -4px -4px 12px #ffffff;
-  
+    inset -4px -4px 12px #ffffff;
+
 }
 
 .button2:before {
@@ -333,7 +336,7 @@ body {
   display: block;
   transition: all 0.5s 0.1s cubic-bezier(0.55, 0, 0.1, 1);
   z-index: -1;
-  
+
 }
 
 .button2:after {
@@ -351,7 +354,6 @@ body {
 }
 
 /* FOOTER */
-
 footer {
   align-self: flex-end;
   width: 100%;
@@ -359,4 +361,45 @@ footer {
   background-color: #e4cfad;
 }
 
+.boton_like {
+  border: 1px solid #090909;
+  border-radius: 160px;
+  width: 60px;
+  padding: 5px;
+  box-shadow: 6px 6px 12px #c5c5c5,
+  -6px -6px 12px #ffffff;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+  font-family: montserrat;
+  color: #2C3E50;
+  font-size: 13px;
+  background-color: #FAF2F2;
+}
+
+.gris{
+  color: #e4405f;
+}
+
+.llenado{
+  color: #b4b4b4;
+}
+
+.chiquito{
+  font-size: 12px;
+}
+
+.alert{
+  padding: 0;
+  margin: 0;
+}
+
+.titulo-contactos{
+  color: #fff;
+  width: 75% !important;
+  margin-top: 15px;
+  padding: 2px;
+  font-size: 30px;
+  border-radius: 30px;
+  background-color: rgba(0, 0, 0, 0.173);
+}
 /* CLASES GENERALES */

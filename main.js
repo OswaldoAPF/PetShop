@@ -49,8 +49,10 @@ createApp({
         
         agregarCarrito: function (id){       
                let producto= this.juguetes.filter((juguete,i)=>juguete._id===id?this.juguetes[i].stock=this.juguetes[i].stock-this.juguetes[i].max:null)    
-                console.log(producto)      
+                console.log(producto)    
+                this.carrito.includes(producto[0]) ? null : this.carrito.push(producto[0])  
             }
+              
     },
         
     computed: {

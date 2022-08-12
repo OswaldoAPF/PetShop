@@ -29,6 +29,7 @@ createApp({
             this.infoProd(this.data)             
         })
         .catch(err => console.log(err))
+        this.carrito=JSON.parse(localStorage.getItem("enCarrito")) //IMPORTANTE 2
     },
     
     methods: {
@@ -68,6 +69,7 @@ createApp({
                         e.stock--
                     }
             })
+            localStorage.setItem("enCarrito",JSON.stringify(this.carrito)) //IMPORTANTE 1
         },
 
         vaciarCarrito: function(){

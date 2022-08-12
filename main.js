@@ -23,7 +23,8 @@ createApp({
             medicamentos: [],
             productoInfo: [],
             carrito: [],
-            hola: []
+            totalCarrito: 0,
+
         }
     },
 
@@ -31,7 +32,7 @@ createApp({
         fetch(URL)
         .then(res => res.json())
         .then(datos => {
-            this.data = datos.response
+            this.data = [...datos.response]
             console.log(this.data);
             this.soloJuguetes()
             this.soloMedicamentos()
@@ -55,38 +56,64 @@ createApp({
             return this.productoInfo = arr.filter(prod => prod._id == this.id)
         },
 
-        agregarCarrito: function (id){
-            this.hola = this.juguetes.filter((juguete,i)=> juguete._id===id ? 
-            this.juguetes[i].stock = this.juguetes[i].stock - 1 : 
-            null)
+        agregarCarrito: function (item){
             
-            let condicion = this.carrito.some(juguete => juguete._id === id)
-            console.log(condicion);
-             
-            if(condicion){
+            let bool = this.carrito.some( e => e._id === item._id)
+            console.log(bool)
+            if(bool){
+                this.carrito.forEach( e => {
+                    if(e._id === item._id ){
+                     e.cantidad++
+                     e.stock--
+                     e.total += e.precio
+                    }
+                })
+            }else{
+                 let aux = {...item}
+                 aux.cantidad = 1
+                 aux.stock--
+                 aux.total = aux.precio
+                 this.carrito.push(aux)
+                }
+                this.data.forEach( e => {
+                    if(e._id === item._id ){
+                        e.stock--
+                    }
+            })
+        },
 
-                let aux = this.carrito.map(juguete => {
+        vaciarCarrito: function(){
+            
+            if(carrito.length > 0){
+                this.carrito.forEach( e => {
+                    if(e._id === item._id ){
+                     e.cantidad++
+                     e.stock--
+                     e.total += e.precio
+                    }
+                })
+            }
 
-                     if(juguete._id === id){
-                         let copia = {...juguete}
-                         copia.cantidad ++
-                         //copia.stock -= 1
-                         console.log(copia);
-                         return copia
+            
+        },
+        
+    },
+    
+    computed: {
 
-                     }else{
-                         return juguete
-                     }
-                 })
-                 this.carrito = aux
-                 
-             }else{ //god
-                 let aux = this.hola.find(juguete => juguete._id === id)
-                     //aux.stock -=1
-                     aux.cantidad = 1
-                     this.carrito.push(aux)
-             }
-        }
-}
+        imprimirTotal: function(){
+            if(this.carrito.length > 0){
+                let total = 0
+                this.carrito.forEach(a=>{
+                    total += a.total 
+                })
+                this.totalCarrito = total
+            }else{
+                this.totalCarrito = 0
+            }
+        },
 
+
+        
+    }
 }).mount('#container')

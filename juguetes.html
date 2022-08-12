@@ -59,8 +59,8 @@
 
 <!-- MAIN -->
 <main id="container">
-{{hola}}
-  {{carrito}}
+  
+{{imprimirTotal}}
   <section class="d-flex flex-wrap justify-content-center gap-5">
     <h1 class="w-100 text-center p-5">JUGUETES PARA TU MASCOTA</h1>
     <template v-for="juguete in juguetes">
@@ -78,7 +78,7 @@
         
           <div class="col-12">
             <div class="col-12 d-flex justify-content-center p-3">
-              <button v-if="juguete.stock > 0" type="button" v-on:click="agregarCarrito(juguete._id)" class="col-9 mx-1 btn agregar-a-carrito text-light">Agregar al carrito</button>
+              <button v-if="juguete.stock > 0" type="button" v-on:click="agregarCarrito(juguete)" class="col-9 mx-1 btn agregar-a-carrito text-light">Agregar al carrito</button>
               <button v-if="juguete.stock === 0" type="button" class="col-9 disabled mx-1 btn agregar-a-carrito text-light">Agregar al carrito</button>
               <a :href="`./info.html?id=${juguete._id}`" class="col-3 mx-1 btn info-prod text-dark ">Info</a>
             </div>

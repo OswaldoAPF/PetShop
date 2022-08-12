@@ -72,16 +72,10 @@
             <p  v-if="medicamento.stock > 0" class="card-text"> Unidades disponibles: {{medicamento.stock}}</p>
             <p v-if="medicamento.stock <= 0" class="card-text"> Unidades disponibles: SIN STOCK</p>
           </div>
-            <div class="col-12">
-              <div class="d-flex flex-row w-100 justify-content-center">
-                <label class="w-30 m-1">Cantidad</label>
-                <input  v-model="medicamento.max" class="w-50 text-center" type="number" min="1" v-bind:max="medicamento.stock" onkeydown="return false"  step="1" value="1" name="" id="">
-              </div>
-            </div>
           
             <div class="col-12">
               <div class="col-12 d-flex justify-content-center p-3">
-                <button v-if="medicamento.stock > 0" type="button" v-on:click="agregarCarrito(medicamento._id)" class="col-9 mx-1 btn agregar-a-carrito text-light">Agregar al carrito</button>
+                <button v-if="medicamento.stock > 0" type="button" v-on:click="agregarCarrito(medicamento)" class="col-9 mx-1 btn agregar-a-carrito text-light">Agregar al carrito</button>
                 <button v-if="medicamento.stock <= 0" type="button" v-on:click="agregarCarrito" class="col-9 disabled mx-1 btn agregar-a-carrito text-light">Agregar al carrito</button>
                 <a :href="`./info.html?id=${medicamento._id}`" class="col-3 mx-1 btn info-prod text-dark ">Info</a>
               </div>

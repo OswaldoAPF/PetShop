@@ -96,16 +96,11 @@
             <p class="card-text">${{juguete.precio}}</p>
             <p class="card-text"> Unidades disponibles: {{juguete.stock}}</p>
           </div>
-            <div class="col-12">
-              <div class="d-flex flex-row w-100 justify-content-center">
-                <label class="w-30 m-1">Cantidad</label>
-                <input  v-model="juguete.max" class="w-50 text-center" type="number" min="1" v-bind:max="juguete.stock" onkeydown="return false"  step="1" value="1" name="" id="">
-              </div>
-            </div>
           
             <div class="col-12">
               <div class="col-12 d-flex justify-content-center p-3">
-                <button type="button" v-on:click="" class="col-9 mx-1 btn agregar-a-carrito text-light">Agregar al carrito</button>
+                <button id="botonCarrito1" v-if="Botonboolean==0" type="button" v-on:click="EventoBotonCarrito(juguete._id)" class="col-9 mx-1 btn agregar-a-carrito text-light">Agregar al carrito</button>
+                <button id="botonCarrito2" v-if="Botonboolean>0" type="button" v-on:click="EventoBotonCarrito" class="col-9 mx-1 btn agregar-a-carrito text-light">Quitar del carrito</button>
                 <a :href="`./info.html?id=${juguete._id}`" class="col-3 mx-1 btn info-prod text-dark ">Info</a>
               </div>
             </div>

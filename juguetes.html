@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Tangerine">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Quicksand">
     <link rel="stylesheet" href="./main.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Quicksand">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
     <title>Juguetes - Ke Bellios</title>
 </head>
@@ -19,74 +21,103 @@
             <div class="container-fluid">
               <a class="navbar-brand" href="#"><img src="./assets/img/logo.png" height="100" alt="logo"></a>
               
-                <div class="burger navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <div class="burger navbar-toggler mx-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                     <div class="line"></div>
                     <div class="line"></div>
                     <div class="line"></div>
                 </div>
 
               <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                <ul class="navbar-nav">
-                  <li class="nav-item">
-                    <a class="nav-link fw-bold"  aria-current="page" href="./index.html">Home</a>
-                  </li>
-                  <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" style="color: #FF5757" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                      Tienda
-                    </a>
-                    <ul class="dropdown-menu fs-5">
-                      <li><a class="dropdown-item" href="./farmacia.html">Farmacia</a></li>
-                      <li><hr class="dropdown-divider"></li>
-                      <li><a class="dropdown-item itembg" href="#">Juguetes</a></li>
-                    </ul>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="./contacto.html">Contact</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="./carrito.html">
-                      <div class="carrito">
-                        <img src="./assets/img/carrito.png" width="35px" height="35px" alt="carrito">
-                      </div>
-                    </a>
-                  </li>
-                </ul>
+                <div class="w-100 d-flex justify-content-between">
+                  <ul class="navbar-nav">
+                    <li class="nav-item">
+                      <a class="nav-link fw-bold"  aria-current="page" href="./index.html">Home</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle" style="color: #FF5757" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Tienda
+                      </a>
+                      <ul class="dropdown-menu fs-5">
+                        <li><a class="dropdown-item" href="./farmacia.html">Farmacia</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item itembg" href="#">Juguetes</a></li>
+                      </ul>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="./contacto.html">Contacto</a>
+                    </li>
+                  </ul>
+                  <div class="d-flex justify-content-end mx-3">
+                    <button class="carrito" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+                      <img src="./assets/img/carrito.png" width="35px" height="35px" alt="carrito">
+                    </button>
+                  </div>
+                </div>
               </div>
             </div>
           </nav>
-
-    </header>
-
-<!-- MAIN -->
-<main id="container">
-  
-{{imprimirTotal}}
-  <section class="d-flex flex-wrap justify-content-center gap-5">
-    <h1 class="w-100 text-center p-5">JUGUETES PARA TU MASCOTA</h1>
-    <template v-for="juguete in juguetes">
-      <div class="card">
-        <p class="position-absolute top-0 start-50 translate-middle text-white  w-75 stock fw-bold text-center border rounded-5" v-if="juguete.stock > 0 && juguete.stock <= 5">¡Pocas Unidades!</p>
-        <p class="position-absolute top-0 start-50 translate-middle text-white  w-75 stock fw-bold text-center " v-if="juguete.stock == 0"></p>
-
-        <img v-bind:src="juguete.imagen" alt="juguete" >
-        <div class="card-body text-dark">
-          <h5 class="card-title">{{juguete.nombre}}</h5>
-          <p class="card-text">${{juguete.precio}}</p>
-          <p  v-if="juguete.stock > 0" class="card-text"> Unidades disponibles: {{juguete.stock}}</p>
-          <p v-if="juguete.stock === 0" class="card-text"> Unidades disponibles: SIN STOCK</p>
-        </div>
+     
+  </header>
         
-          <div class="col-12">
-            <div class="col-12 d-flex justify-content-center p-3">
-              <button v-if="juguete.stock > 0" type="button" v-on:click="agregarCarrito(juguete)" class="col-9 mx-1 btn agregar-a-carrito text-light">Agregar al carrito</button>
-              <button v-if="juguete.stock === 0" type="button" class="col-9 disabled mx-1 btn agregar-a-carrito text-light">Agregar al carrito</button>
-              <a :href="`./info.html?id=${juguete._id}`" class="col-3 mx-1 btn info-prod text-dark ">Info</a>
+        <!-- MAIN -->
+        
+  <main id="container">
+    {{imprimirTotal}}
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title fw-bold" id="offcanvasRightLabel">Carrito de Compras</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-header">
+        <p>Revisa tus productos aca!</p>
+        <button @click="vaciarCarrito" class="btn w-25 btn-limpiar-carrito fw-bold mb-2" type="button">Limpiar Carrito</button>
+      </div>
+      <div class="offcanvas-body">
+        <template v-for="producto in carrito"> 
+          <div class="card_carrito m-3 d-flex align-items-start border p-3">
+            <div class="card-body">
+              <img class="w-25" v-bind:src="producto.imagen" alt="carrito_imagen">
+              <h5 class="card-title fw-bold">{{producto.nombre}}</h5>
+              <p class="card-text">${{producto.total}}</p>
+              <p class="card-text">Cantidad: {{producto.cantidad}}</p>
+              <button class="btn btn-sacar fw-bold">Sacar del carrito</button>
             </div>
           </div>
-      </div>
-    </template>
-  </section> 
-</main>
+        </template> 
+        </div>
+        <div class="d-flex justify-content-center flex-column align-items-center border-top">
+          <p class="fs-5"><span class="fw-bold">Total: </span>${{totalCarrito}}</p>
+          <button class="btn w-75 btn-comprar fw-bold mb-2" type="button">Comprar</button>
+        </div>
+    </div>
+          
+    <section class="d-flex flex-wrap justify-content-center gap-5">
+      <h1 class="w-100 text-center p-5">JUGUETES PARA TU MASCOTA</h1>
+      <template v-for="juguete in juguetes">
+        <div class="card">
+          <p class="position-absolute top-0 start-50 translate-middle text-white  w-75 stock fw-bold text-center border rounded-5" v-if="juguete.stock > 0 && juguete.stock <= 5">¡Pocas Unidades!</p>
+          <p class="position-absolute top-0 start-50 translate-middle text-white  w-75 stock fw-bold text-center " v-if="juguete.stock == 0"></p>
+
+          <img v-bind:src="juguete.imagen" alt="juguete" >
+          <div class="card-body text-dark">
+            <h5 class="card-title">{{juguete.nombre}}</h5>
+            <p class="card-text">${{juguete.precio}}</p>
+            <p  v-if="juguete.stock > 0" class="card-text"> Unidades disponibles: {{juguete.stock}}</p>
+            <p v-if="juguete.stock === 0" class="card-text"> Unidades disponibles: SIN STOCK</p>
+          </div>
+          
+            <div class="col-12">
+              <div class="col-12 d-flex justify-content-center p-3">
+                <button v-if="juguete.stock > 0" type="button" v-on:click="agregarCarrito(juguete)" class="col-9 mx-1 btn agregar-a-carrito text-light">Agregar al carrito</button>
+                <button v-if="juguete.stock === 0" type="button" class="col-9 disabled mx-1 btn agregar-a-carrito text-light">Agregar al carrito</button>
+                <a :href="`./info.html?id=${juguete._id}`" class="col-3 mx-1 btn info-prod text-dark ">Info</a>
+              </div>
+            </div>
+        </div>
+      </template>
+    </section> 
+  </main>
+
 
 <!-- FOOTER  -->
     <footer>
@@ -96,7 +127,6 @@
 
     </footer>
 
-<!-- SCRIPS (cambié a al orden correcto importe la libreria de vue) --> 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
     <script src="https://unpkg.com/vue@3"></script>
     <script src="./main.js"></script>

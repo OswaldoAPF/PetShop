@@ -1,14 +1,3 @@
-/* let burger = document.querySelector(".burger");
-
-
-burger.addEventListener("click", () => {
-    burger.classList.toggle("active");
-})
-
-
-burger.addEventListener("click", () => {
-    burger.classList.toggle("active");
-}) */
 
 const URL =  "https://apipetshop.herokuapp.com/api/articulos"
 
@@ -24,7 +13,6 @@ createApp({
             productoInfo: [],
             carrito: [],
             totalCarrito: 0,
-
         }
     },
 
@@ -40,7 +28,7 @@ createApp({
         })
         .catch(err => console.log(err))
     },
-
+    
     methods: {
         soloJuguetes : function(){
             return this.juguetes = this.data.filter(elemento => elemento.tipo.includes("Juguete"))
@@ -49,7 +37,7 @@ createApp({
         soloMedicamentos : function(){
             return this.medicamentos = this.data.filter(elemento => elemento.tipo.includes("Medicamento"))
         },
-
+        
         infoProd: function(arr) {
             this.URLsearch = window.location.search
             this.id = this.URLsearch.slice(4)
@@ -93,7 +81,6 @@ createApp({
                     }
                 })
             }
-
             
         },
         
@@ -111,9 +98,8 @@ createApp({
             }else{
                 this.totalCarrito = 0
             }
+
         },
-
-
-        
     }
 }).mount('#container')
+

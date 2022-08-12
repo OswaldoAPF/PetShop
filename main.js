@@ -18,11 +18,12 @@ createApp({
     data(){
         return{
             data: [],
+            auxData: [],
             juguetes: [],
             medicamentos: [],
-            productos: [],
-            farmacia: [],
-            productoInfo: []
+            productoInfo: [],
+            carrito: [],
+            hola: []
         }
     },
 
@@ -31,17 +32,10 @@ createApp({
         .then(res => res.json())
         .then(datos => {
             this.data = datos.response
+            console.log(this.data);
             this.soloJuguetes()
             this.soloMedicamentos()
-
-            this.productos = this.data.map(prod => {
-                prod.max = 1
-                return prod
-            })
-            
-            this.infoProd(this.data)
-            //this.agregarCarrito()
-             
+            this.infoProd(this.data)             
         })
         .catch(err => console.log(err))
     },
@@ -61,33 +55,38 @@ createApp({
             return this.productoInfo = arr.filter(prod => prod._id == this.id)
         },
 
-/*        agregarCarrito: function(e){
+        agregarCarrito: function (id){
+            this.hola = this.juguetes.filter((juguete,i)=> juguete._id===id ? 
+            this.juguetes[i].stock = this.juguetes[i].stock - 1 : 
+            null)
             
-            console.log(e.target);
-        }  */
-    },
+            let condicion = this.carrito.some(juguete => juguete._id === id)
+            console.log(condicion);
+             
+            if(condicion){
 
-    watch: {
+                let aux = this.carrito.map(juguete => {
 
-    },
+                     if(juguete._id === id){
+                         let copia = {...juguete}
+                         copia.cantidad ++
+                         //copia.stock -= 1
+                         console.log(copia);
+                         return copia
 
-    computed: {
-        offCanvasBoton:function(){
-
+                     }else{
+                         return juguete
+                     }
+                 })
+                 this.carrito = aux
+                 
+             }else{ //god
+                 let aux = this.hola.find(juguete => juguete._id === id)
+                     //aux.stock -=1
+                     aux.cantidad = 1
+                     this.carrito.push(aux)
+             }
         }
-    }
+}
 
 }).mount('#container')
-
-
-
-    /* <div class="offcanvas offcanvas-top position-absolute" tabindex="-1" id="offcanvasTop" aria-labelledby="offcanvasTopLabel">
-               <div class="offcanvas-header">
-                 <h5 class="offcanvas-title" id="offcanvasTopLabel">{{juguete.nombre}}</h5>
-                 <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-               </div>
-               <div class="offcanvas-body">
-                <p>{{juguete.descripcion}}</p>
-               </div>
-             </div> */
-

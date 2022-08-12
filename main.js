@@ -11,9 +11,11 @@ createApp({
     data(){
         return{
             data: [],
+            auxData: [],
             juguetes: [],
             medicamentos: [],
             productoInfo: [],
+
         }
     },
     
@@ -22,17 +24,11 @@ createApp({
         .then(res => res.json())
         .then(datos => {
             this.data = datos.response
+            console.log(this.data);
             this.soloJuguetes()
             this.soloMedicamentos()
-            
-            this.productos = this.data.map(prod => {
-                prod.max = 1
-                return prod
-            })
-            
-            this.infoProd(this.data)
-            //this.agregarCarrito()
-             
+
+            this.infoProd(this.data)             
         })
         .catch(err => console.log(err))
     },
@@ -50,8 +46,41 @@ createApp({
             this.id = this.URLsearch.slice(4)
             return this.productoInfo = arr.filter(prod => prod._id == this.id)
         },
+        agregarCarrito: function (id){
+            this.hola = this.juguetes.filter((juguete,i)=> juguete._id===id ? 
+            this.juguetes[i].stock = this.juguetes[i].stock - 1 : 
+            null)
+            
+            let condicion = this.carrito.some(juguete => juguete._id === id)
+            console.log(condicion);
+             
+            if(condicion){
+
+                let aux = this.carrito.map(juguete => {
+
+                     if(juguete._id === id){
+                         let copia = {...juguete}
+                         copia.cantidad ++
+                         //copia.stock -= 1
+                         console.log(copia);
+                         return copia
+
+                     }else{
+                         return juguete
+                     }
+                 })
+                 this.carrito = aux
+                 
+             }else{ //god
+                 let aux = this.hola.find(juguete => juguete._id === id)
+                     //aux.stock -=1
+                     aux.cantidad = 1
+                     this.carrito.push(aux)
+             }
+        }
       },
     computed: {
+
         
     }
 
@@ -98,4 +127,3 @@ Swal.fire({
   showConfirmButton: false,
   timer: 1500
 })
-

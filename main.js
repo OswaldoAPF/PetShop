@@ -1,8 +1,8 @@
-/* let burger = document.querySelector(".burger");
+let burger = document.querySelector(".burger");
 
 burger.addEventListener("click", () => {
     burger.classList.toggle("active");
-}) */
+}) 
 
 const URL =  "https://apipetshop.herokuapp.com/api/articulos"
 
@@ -98,5 +98,4 @@ Swal.fire({
   showConfirmButton: false,
   timer: 1500
 })
-
 

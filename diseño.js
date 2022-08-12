@@ -38,12 +38,12 @@ enviar.addEventListener("click", function (e) {
     footer: "¡Que tengas lindo día!",
     imageUrl: "./assets/img/perroFeliz.png",
     showConfirmButton: false,
-    timer: 1500,
+    timer: 2000,
     color: "#FF5757",
     background: "linear-gradient(35deg, #CCFFFF, #FFCCCC",
     backdrop: `
       rgba(0,0,123,0.4)
-      no-repeat
+      repeat
     `,
   });
 

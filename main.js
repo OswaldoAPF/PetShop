@@ -11,7 +11,7 @@ createApp({
             medicamentos: [],
 
             productoInfo: [],
-
+            Botonboolean:"0"
         }
     },
     
@@ -29,7 +29,6 @@ createApp({
             })
             
             this.infoProd(this.data)
-            //this.agregarCarrito()
              
         })
         .catch(err => console.log(err))
@@ -49,6 +48,14 @@ createApp({
             this.id = this.URLsearch.slice(4)
             return this.productoInfo = arr.filter(prod => prod._id == this.id)
         },
+        EventoBotonCarrito:function(id){
+          if(this.Botonboolean==0){
+            this.Botonboolean=1
+          }else{this.Botonboolean=0}
+          console.log(this.Botonboolean)
+          console.log(document.getElementById("botonCarrito1"))      
+        }
+
       },
 
     computed: {
@@ -57,7 +64,7 @@ createApp({
 
 }).mount('#container')
 
-
+/*
 let next = document.querySelector(".next"); // Boton Siguiente
 let prev = document.querySelector(".prev"); // Boton Atras
 let progressIcon = document.querySelector("#progressbar li"); // Barra de Progreso
@@ -99,4 +106,4 @@ Swal.fire({
   timer: 1500
 })
 
-
+*/

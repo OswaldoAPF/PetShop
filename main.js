@@ -1,4 +1,3 @@
-
 const URL =  "https://apipetshop.herokuapp.com/api/articulos"
 
 const { createApp } = Vue
@@ -7,7 +6,6 @@ createApp({
     data(){
         return{
             data: [],
-            auxData: [],
             juguetes: [],
             medicamentos: [],
             productoInfo: [],
@@ -27,6 +25,8 @@ createApp({
             this.infoProd(this.data)             
         })
         .catch(err => console.log(err))
+        
+        this.carrito=JSON.parse(localStorage.getItem("enCarrito")) //IMPORTANTE 2
     },
     
     methods: {
@@ -37,13 +37,12 @@ createApp({
         soloMedicamentos : function(){
             return this.medicamentos = this.data.filter(elemento => elemento.tipo.includes("Medicamento"))
         },
-        
         infoProd: function(arr) {
             this.URLsearch = window.location.search
             this.id = this.URLsearch.slice(4)
             return this.productoInfo = arr.filter(prod => prod._id == this.id)
         },
-
+        
         agregarCarrito: function (item){
             
             let bool = this.carrito.some( e => e._id === item._id)
@@ -68,6 +67,7 @@ createApp({
                         e.stock--
                     }
             })
+            localStorage.setItem("enCarrito",JSON.stringify(this.carrito)) //IMPORTANTE 1
         },
 
         vaciarCarritoOnly: function(item){
@@ -90,11 +90,23 @@ createApp({
                 })
 
             }
+            localStorage.setItem("enCarrito",JSON.stringify(this.carrito))
             
         },
+
+        comprar: function(){
+            
+            if(this.carrito.length === 0){
+                alert("no hay productos en el carrito, mamahuevo")
+            }else{
+                alert( "gracias porsu compra" )
+            } 
+            this.carrito = []
+            
+            localStorage.setItem("enCarrito",JSON.stringify(this.carrito))
+        }
         
     },
-    
     computed: {
 
         imprimirTotal: function(){
@@ -107,8 +119,10 @@ createApp({
             }else{
                 this.totalCarrito = 0
             }
-
-        },
+        }
+        
     }
 }).mount('#container')
+
+
 

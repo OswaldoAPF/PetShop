@@ -180,7 +180,7 @@ nav {
 }
 
 .imagencard {
-  border-radius: 50px;
+  border-radius: 50px !important;
 }
 
 .agregar-a-carrito {

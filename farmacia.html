@@ -100,7 +100,7 @@
         <div class="card">
           <p class="position-absolute top-0 start-50 translate-middle text-white  w-75 stock fw-bold text-center border rounded-5" v-if="medicamento.stock > 0 && medicamento.stock <= 5">¡Pocas Unidades!</p>
           <p class="position-absolute top-0 start-50 translate-middle text-white  w-75 stock fw-bold text-center " v-if="medicamento.stock == 0"></p>
-          <img v-bind:src="medicamento.imagen" alt="medicamento" >
+          <img class="imagencard" v-bind:src="medicamento.imagen" alt="medicamento" >
           <div class="card-body text-dark">
             <h5 class="card-title">{{medicamento.nombre}}</h5>  
             <p class="card-text">${{medicamento.precio}}</p>

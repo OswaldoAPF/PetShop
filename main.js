@@ -76,8 +76,8 @@ createApp({
                         e.stock--
                     }
             })
-            localStorage.setItem("enCarrito",JSON.stringify(this.carrito)) //IMPORTANTE 1
-            localStorage.setItem("enData",JSON.stringify(this.data)) //IMPORTANTE 1
+            localStorage.setItem("enCarrito",JSON.stringify(this.carrito))
+            localStorage.setItem("enData",JSON.stringify(this.data)) 
         },
 
         vaciarCarritoOnly: function(item){
@@ -105,19 +105,19 @@ createApp({
         },
 
         comprar: function(){
-            
             if(this.carrito.length === 0){
                 alert("no hay productos en el carrito, mamahuevo")
             }else{
-                alert( "gracias porsu compra" )
+                this.carrito = []
+                alert("no hay productos en el carrito, mamahuevo")
             } 
-            this.carrito = []
             
-            localStorage.setItem("enCarrito",JSON.stringify(this.carrito))
             localStorage.setItem("enData",JSON.stringify(this.data))
-        }
-        
-    },
+            localStorage.setItem("enCarrito",JSON.stringify(this.carrito))
+            localStorage.clear()
+        },
+
+    },    
     computed: {
 
         imprimirTotal: function(){
@@ -130,8 +130,7 @@ createApp({
             }else{
                 this.totalCarrito = 0
             }
-        }
-        
-    }
+        },
+    },
 }).mount('#container')
 

@@ -100,7 +100,7 @@
           <p class="position-absolute top-0 start-50 translate-middle text-white  w-75 stock fw-bold text-center border rounded-5" v-if="juguete.stock > 0 && juguete.stock <= 5">¡Pocas Unidades!</p>
           <p class="position-absolute top-0 start-50 translate-middle text-white  w-75 stock fw-bold text-center " v-if="juguete.stock == 0"></p>
 
-          <img v-bind:src="juguete.imagen" alt="juguete" >
+          <img class="imagencard" v-bind:src="juguete.imagen" alt="juguete" >
           <div class="card-body text-dark">
             <h5 class="card-title">{{juguete.nombre}}</h5>
             <p class="card-text">${{juguete.precio}}</p>

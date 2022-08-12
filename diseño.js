@@ -67,11 +67,6 @@ otro.addEventListener("click", function (e) {
   }
 });
 
-
-
-
-
-
 let like = document.querySelector(".like");
 let div2 = document.querySelector(".div2");
 like.addEventListener("click", function (e) {

@@ -69,11 +69,12 @@
         <p>Revisa tus productos aca!</p>
       </div>
       <div class="offcanvas-body">
-        <template> 
+        <template v-for="producto in carrito"> 
           <div class="card_carrito m-3 d-flex align-items-start border p-3">
             <div class="card-body">
-              <h5 class="card-title fw-bold">Special title treatment</h5>
-              <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+              <img v-bind:src="producto.imagen" alt="">
+              <h5 class="card-title fw-bold">{{producto.nombre}}</h5>
+              <p class="card-text">{{producto.precio}}</p>
               <button class="btn btn-sacar fw-bold">Sacar del carrito</button>
             </div>
           </div>
@@ -218,8 +219,9 @@
     </footer>
 
 <!-- SCRIPS -->
-    <script src="./main.js"></script>
-    <script src="https://unpkg.com/vue@3"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/vue@3"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+<script src="./main.js"></script>
+<script src="./diseño.js"></script>
 </body>
 </html>

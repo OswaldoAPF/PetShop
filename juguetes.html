@@ -73,16 +73,17 @@
         <button @click="vaciarCarrito" class="btn w-25 btn-limpiar-carrito fw-bold mb-2" type="button">Limpiar Carrito</button>
       </div>
       <div class="offcanvas-body">
-        <template v-for="producto in carrito"> 
-          <div class="card_carrito m-3 d-flex align-items-start border p-3">
+        <template v-for="producto in carrito" > 
+          <div class="card_carrito m-3 d-flex align-items-start border p-3" v-if="producto.cantidad > 0">
             <div class="card-body">
               <img class="w-25" v-bind:src="producto.imagen" alt="carrito_imagen">
               <h5 class="card-title fw-bold">{{producto.nombre}}</h5>
               <p class="card-text">${{producto.total}}</p>
               <p class="card-text">Cantidad: {{producto.cantidad}}</p>
-              <button class="btn btn-sacar fw-bold">Sacar del carrito</button>
+              <button class="btn btn-sacar fw-bold" @click="vaciarCarritoOnly(producto)">Sacar del carrito</button>
             </div>
           </div>
+          <div v-else></div>
         </template> 
         </div>
         <div class="d-flex justify-content-center flex-column align-items-center border-top">

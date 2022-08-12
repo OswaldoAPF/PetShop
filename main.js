@@ -70,16 +70,25 @@ createApp({
             })
         },
 
-        vaciarCarrito: function(){
+        vaciarCarritoOnly: function(item){
             
-            if(carrito.length > 0){
+            if(this.carrito.length > 0){
+
                 this.carrito.forEach( e => {
                     if(e._id === item._id ){
-                     e.cantidad++
-                     e.stock--
-                     e.total += e.precio
+                     e.cantidad--
+                     e.stock++
+                     e.total -= e.precio
                     }
                 })
+
+                this.juguetes.forEach(e => {
+                    if(e._id === item._id ){
+                        e.stock++
+                        e.total = e.precio
+                       }
+                })
+
             }
             
         },
